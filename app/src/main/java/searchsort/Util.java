@@ -23,8 +23,15 @@ public class Util {
     public static int[] shuffle(int[] arr, Long seed) {
         // Initialize a Random object with the given seed if provided
         Random random = (seed != null) ? new Random(seed) : new Random();
-        // Note: This generates a random number between 0 and 5:
-        // int randomNum = random.nextInt(6);
+
+        // Implement the Fisher-Yates shuffle algorithm
+        // To generate a random index between 0 and i (exclusive) use:
+        // random.nextInt(i)
+
+        for (int i = arr.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1); 
+            exch(arr, i, j);
+        }
 
         return arr;
     }
@@ -33,7 +40,9 @@ public class Util {
      * Exchange the elements at indices i and j in the array arr.
      */
     public static void exch(int[] arr, int i, int j) {
-
+        int element = arr[i];
+        arr[i] = arr[j];
+        arr[j] = element;
     }
 
     /**
@@ -41,17 +50,23 @@ public class Util {
      */
     public static int[] generateRandomArray(int n, Long seed) {
         // Create a new integer array of size n
-
+        int arr[] = new int[n];
         // Shuffle the array using the Shuffle method with the given seed
-
+        shuffle(arr, seed);
         // Return the shuffled array
-        return new int[n];
+        // return new int[n];
+        return arr;
     }
 
     /**
      * Check if the array arr is sorted in ascending order.
      */
     public static boolean isSorted(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > arr[i + 1]) {
+                return false;
+            }
+        }
         return true;
     }
 }

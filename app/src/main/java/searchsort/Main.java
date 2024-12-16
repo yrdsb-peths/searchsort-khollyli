@@ -6,11 +6,11 @@ package searchsort;
 public class Main {
     public static void main(String[] args) {
         // Test Util.exch
-        int[] arr1 = { 1, 2, 3, 4, 5 };
-        Util.exch(arr1, 0, 1);
-        for (int i = 0; i < arr1.length; i++) {
-            System.out.print(arr1[i] + " ");
-        }
+        // int[] arr1 = { 1, 2, 3, 4, 5 };
+        // Util.exch(arr1, 0, 1);
+        // for (int i = 0; i < arr1.length; i++) {
+        //     System.out.print(arr1[i] + " ");
+        // }
 
         // Test Util.shuffle
         int[] arr = { 1, 2, 3, 4, 5 };
@@ -18,5 +18,14 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+        
+        // Test Util.isSorted
+        // boolean isTrue = Util.isSorted(arr);
+        // System.out.println(isTrue);
+
+        // System.out.println(find(arr, 4));
+
+        int find = LinearSearch.find(arr, 9);
+        System.out.println(find);
     }
 }
